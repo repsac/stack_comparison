@@ -4,9 +4,9 @@ Comparing image stacking results between:
 - Affinity Photo
 - Python numpy & scypy
 
-These tests were generated from stacking the following two frames
-![](images/frames/frame1.png)
-![](images/frames/frame2.png)
+The tests were generated from stacking the following two frames<br />
+<img src="images/frames/frame1.png" width="200" height="200">
+<img src="images/frames/frame2.png" width="200" height="200">
 
 Python setup
 ```
@@ -18,110 +18,88 @@ y = numpy.array(Image.open('images/frames/frame2.png'))
 ```
 ---
 ## Maximum
-Adobe Photoshop
-![](images/maximum/ps.maximum.png)
-Affinity Photo
-![](images/maximum/ap.maximum.png)
-Python numpy
+| Adobe Photoshop | Affinity Photo | Python numpy |
+| :----: | :----: | :----: |
+| <img src="images/maximum/ps.maximum.png" width="200" height="200"> | <img src="images/maximum/ap.maximum.png" width="200" height="200"> | <img src="images/maximum/np.maximum.png" width="200" height="200"> |
 ```
 stacked = numpy.uint8(numpy.amax([x, y], axis=0))
 array = Image.fromarray(stacked)
 array.save('images/maximum/np.maximum.png', format='PNG')
 ```
-![](images/maximum/np.maximum.png)
 
 All samples appear consistent.
 
 ---
 ## Mean
-Adobe Photoshop
-![](images/mean/ps.mean.png)
-Affinity Photo
-![](images/mean/ap.mean.png)
-Python numpy
+| Adobe Photoshop | Affinity Photo | Python numpy |
+| :----: | :----: | :----: |
+| <img src="images/mean/ps.mean.png" width="200" height="200"> | <img src="images/mean/ap.mean.png" width="200" height="200"> | <img src="images/mean/np.mean.png" width="200" height="200"> |
 ```
 stacked = numpy.uint8(numpy.mean([x, y], axis=0))
 array = Image.fromarray(stacked)
 array.save('images/mean/np.mean.png', format='PNG')
 ```
-![](images/mean/np.mean.png)
 
 All samples appear consistent.
 
 ---
 ## Median
-Adobe Photoshop
-![](images/median/ps.median.png)
-Affinity Photo
-![](images/median/ap.median.png)
-Python numpy
+| Adobe Photoshop | Affinity Photo | Python numpy |
+| :----: | :----: | :----: |
+| <img src="images/median/ps.median.png" width="200" height="200"> | <img src="images/median/ap.median.png" width="200" height="200"> | <img src="images/median/np.median.png" width="200" height="200"> |
 ```
 stacked = numpy.uint8(numpy.median([x, y], axis=0))
 array = Image.fromarray(stacked)
 array.save('images/median/np.median.png', format='PNG')
 ```
-![](images/median/np.median.png)
 
-I noticed that results from Affinity Photo were not inline with Photoshop or numpy. Affinity Photo had an option unique from the other two called "Midrage" which seemed to yield a result closer to median.
-![](images/ap.midrange.png)
+I noticed that results from Affinity Photo were not inline with Photoshop or numpy. Affinity Photo had an option unique from the other two called "Midrage" which seemed to yield a result closer to median.<br />
+<img src="images/ap.midrange.png" width="200" height="200">
 
 ---
 ## Minimum
-Adobe Photoshop
-![](images/minimum/ps.minimum.png)
-Affinity Photo
-![](images/minimum/ap.minimum.png)
-Python numpy
+| Adobe Photoshop | Affinity Photo | Python numpy |
+| :----: | :----: | :----: |
+| <img src="images/minimum/ps.minimum.png" width="200" height="200"> | <img src="images/minimum/ap.minimum.png" width="200" height="200"> | <img src="images/minimum/np.minimum.png" width="200" height="200"> |
 ```
 stacked = numpy.uint8(numpy.amin([x, y], axis=0))
 array = Image.fromarray(stacked)
 array.save('images/minimum/np.minimum.png', format='PNG')
 ```
-![](images/minimum/np.minimum.png)
 
 All samples appear consistent.
 
 ---
 ## Range
-Adobe Photoshop
-![](images/range/ps.range.png)
-Affinity Photo
-![](images/range/ap.range.png)
-Python numpy
+| Adobe Photoshop | Affinity Photo | Python numpy |
+| :----: | :----: | :----: |
+| <img src="images/range/ps.range.png" width="200" height="200"> | <img src="images/range/ap.range.png" width="200" height="200"> | <img src="images/range/np.range.png" width="200" height="200"> |
 ```
 stacked = numpy.uint8(numpy.ptp([x, y], axis=0))
 array = Image.fromarray(stacked)
 array.save('images/minimum/np.range.png', format='PNG')
 ```
-![](images/range/np.range.png)
 
-The results for Photoshop appear to produce whiter circles.
+The results vary between applications.
 
 ---
 ## Standard Deviation
-Adobe Photoshop
-![](images/standard-deviation/ps.standard-deviation.png)
-Affinity Photo
-![](images/standard-deviation/ap.standard-deviation.png)
-Python numpy
+| Adobe Photoshop | Affinity Photo | Python numpy |
+| :----: | :----: | :----: |
+| <img src="images/standard-deviation/ps.standard-deviation.png" width="200" height="200"> | <img src="images/standard-deviation/ap.standard-deviation.png" width="200" height="200"> | <img src="images/standard-deviation/np.standard-deviation.png" width="200" height="200"> |
 ```
 stacked = numpy.uint8(numpy.std([x, y], axis=0))
 array = Image.fromarray(stacked)
 array.save('images/minimum/np.standard-deviation.png', format='PNG')
 ```
-![](images/standard-deviation/np.standard-deviation.png)
 
-The results for Photoshop appear to produce whiter circles.
+The results vary between applications.
 
 ---
 ## Summation
-Adobe Photoshop
-![](images/summation/ps.summation.png)
-Affinity Photo did not have a "Summation" option, rather it had "Total" which appears to yield the same result.
-Affinity Photo
-![](images/summation/ap.total.png)
-Python numpy
-![](images/summation/np.summation.png)
+| Adobe Photoshop | Python numpy |
+| :----: | :----: |
+| <img src="images/summation/ps.summation.png" width="200" height="200"> | <img src="images/summation/np.summation.png" width="200" height="200"> |
 ```
 stacked = numpy.uint8(numpy.sum([x, y], axis=0))
 array = Image.fromarray(stacked)
@@ -130,30 +108,27 @@ array.save('images/minimum/np.summation.png', format='PNG')
 
 Numpy appears to have produced border artifacts.
 
+There was no "Summation" option for Affinity Photo, but there was a "Total" option which appears to yield the same results.<br />
+<img src="images/summation/ap.total.png" width="200" height="200">
+
 ---
 ## Variance
-Adobe Photoshop
-![](images/variance/ps.variance.png)
-Affinity Photo
-![](images/variance/ap.variance.png)
-Python numpy
-![](images/variance/np.variance.png)
+| Adobe Photoshop | Affinity Photo | Python numpy |
+| :----: | :----: | :----: |
+| <img src="images/variance/ps.variance.png" width="200" height="200"> | <img src="images/variance/ap.variance.png" width="200" height="200"> | <img src="images/variance/np.variance.png" width="200" height="200"> |
 ```
 stacked = numpy.uint8(numpy.var([x, y], axis=0))
 array = Image.fromarray(stacked)
 array.save('images/minimum/np.variance.png', format='PNG')
 ```
 
-The results for Photoshop appear to produce whiter circles.
+The results vary between applications.
 
 ---
 ## Skewness
-Adobe Photoshop
-![](images/skewness/ps.skewness.png)
-Affinity Photo
-![](images/skewness/ap.skewness.png)
-Python numpy
-![](images/skewness/sp.skewness.png)
+| Adobe Photoshop | Affinity Photo | Python scypy |
+| :----: | :----: | :----: |
+| <img src="images/skewness/ps.skewness.png" width="200" height="200"> | <img src="images/skewness/ap.skewness.png" width="200" height="200"> | <img src="images/skewness/sp.skewness.png" width="200" height="200"> |
 ```
 stacked = numpy.uint8(stats.skew([x, y], axis=0))
 array = Image.fromarray(stacked)
@@ -164,16 +139,13 @@ The input test frames are probably not ideal for this test.
 
 ---
 ## Kurtosis
-Adobe Photoshop
-![](images/kurtosis/ps.kurtosis.png)
-Affinity Photo
-![](images/kurtosis/ap.kurtosis.png)
-Python numpy
-![](images/kurtosis/sp.kurtosis.png)
+| Adobe Photoshop | Affinity Photo | Python scypy |
+| :----: | :----: | :----: |
+| <img src="images/kurtosis/ps.kurtosis.png" width="200" height="200"> | <img src="images/kurtosis/ap.kurtosis.png" width="200" height="200"> | <img src="images/kurtosis/sp.kurtosis.png" width="200" height="200"> |
 ```
 stacked = numpy.uint8(stats.kurtosis([x, y], axis=0))
 array = Image.fromarray(stacked)
 array.save('images/minimum/sp.kurtosis.png', format='PNG')
 ```
 
-I'm a bit confused on the results of numpy.
+I'm a bit confused by the results of scypy.
